@@ -43,83 +43,47 @@ border-radius:8px;
 }
 
 /* ===================== */
-/* OLIVENBAUM */
+/* BAUM NAVIGATION */
 /* ===================== */
 
 .tree-nav{
-display:flex;
-justify-content:center;
-align-items:center;
-margin:80px 0 40px 0;
+position:relative;
+width:900px;
+max-width:95%;
+margin:80px auto;
 }
 
-.tree{
+.tree-image{
 width:100%;
-max-width:900px;
+display:block;
 }
 
-/* Stamm */
+/* Navigation Buttons */
 
-.trunk{
-fill:none;
-stroke:#6b3f1c;
-stroke-width:45;
-stroke-linecap:round;
-stroke-linejoin:round;
-}
-
-/* Hauptäste */
-
-.branch{
-fill:none;
-stroke:#6b3f1c;
-stroke-width:14;
-stroke-linecap:round;
-}
-
-/* feine Äste */
-
-.small-branch{
-fill:none;
-stroke:#7a4a22;
-stroke-width:6;
-stroke-linecap:round;
-}
-
-/* Baumkrone */
-
-.crown{
-fill:#6aa84f;
-opacity:0.95;
-}
-
-/* Blätter */
-
-.leaf{
-fill:#4f7f3a;
-opacity:0.9;
-}
-
-/* Navigation */
-
-.nav-circle{
-fill:#2f5d2f;
-cursor:pointer;
+.nav-btn{
+position:absolute;
+background:#2f5d2f;
+color:white;
+padding:10px 14px;
+border-radius:20px;
+font-weight:bold;
+text-decoration:none;
 transition:0.3s;
 }
 
-.nav-circle:hover{
-transform:scale(1.2);
-fill:#1f421f;
+.nav-btn:hover{
+transform:scale(1.1);
+background:#1f421f;
 }
 
-.branch text{
-fill:white;
-font-size:16px;
-font-weight:bold;
-text-anchor:middle;
-pointer-events:none;
-}
+/* Positionen im Baum */
+
+.about{ top:30%; left:20%; }
+.skills{ top:30%; right:20%; }
+.projects{ top:55%; left:10%; }
+.docs{ top:55%; right:10%; }
+.cv{ top:15%; left:45%; }
+.contact{ top:65%; left:45%; }
 
 /* ===================== */
 
@@ -135,8 +99,6 @@ h2{
 border-bottom:2px solid #462106;
 padding-bottom:8px;
 }
-
-#about p{text-align:justify;}
 
 .skill{
 background:#d7b08c;
@@ -207,108 +169,29 @@ bar.style.width=value;
 
 <!-- ===================== -->
 
-<!-- OLIVENBAUM NAVIGATION -->
+<!-- OLIVENBAUM -->
 
 <!-- ===================== -->
 
-<section class="tree-nav">
+<div class="tree-nav">
 
-<svg viewBox="0 0 900 520" class="tree">
+<img src="olivenbaum.jpg" class="tree-image">
 
-<!-- Baumkronen -->
+<a href="#about" class="nav-btn about">Über mich</a> <a href="#skills" class="nav-btn skills">Skills</a> <a href="#projects" class="nav-btn projects">Projekte</a> <a href="#zeugnisse" class="nav-btn docs">Zeugnisse</a> <a href="lebenslauf.pdf" target="_blank" class="nav-btn cv">CV</a> <a href="#contact" class="nav-btn contact">Kontakt</a>
 
-<ellipse cx="260" cy="170" rx="120" ry="90" class="crown"/>
-<ellipse cx="420" cy="130" rx="150" ry="110" class="crown"/>
-<ellipse cx="610" cy="180" rx="120" ry="90" class="crown"/>
-<ellipse cx="460" cy="210" rx="160" ry="100" class="crown"/>
-
-<!-- Stamm -->
-
-<path class="trunk"
-d="M450 520
-C420 440 480 390 440 330
-C410 280 470 250 450 200"/>
-
-<!-- Hauptäste -->
-
-<path class="branch"
-d="M450 200 C350 170 300 150 240 150"/>
-
-<path class="branch"
-d="M450 200 C550 170 600 150 670 160"/>
-
-<path class="branch"
-d="M430 260 C340 240 280 210 220 200"/>
-
-<path class="branch"
-d="M470 260 C560 240 640 210 720 200"/>
-
-<!-- feine Äste -->
-
-<path class="small-branch" d="M300 170 C260 160 230 150 210 140"/>
-<path class="small-branch" d="M340 150 C320 140 300 130 280 120"/>
-<path class="small-branch" d="M540 160 C580 150 610 140 640 130"/>
-<path class="small-branch" d="M600 200 C640 190 670 180 700 170"/>
-
-<!-- Blätter -->
-
-<ellipse class="leaf" cx="300" cy="150" rx="12" ry="6"/>
-<ellipse class="leaf" cx="330" cy="130" rx="12" ry="6"/>
-<ellipse class="leaf" cx="360" cy="160" rx="12" ry="6"/>
-<ellipse class="leaf" cx="500" cy="140" rx="12" ry="6"/>
-<ellipse class="leaf" cx="540" cy="160" rx="12" ry="6"/>
-<ellipse class="leaf" cx="580" cy="180" rx="12" ry="6"/>
-<ellipse class="leaf" cx="260" cy="200" rx="12" ry="6"/>
-<ellipse class="leaf" cx="640" cy="210" rx="12" ry="6"/>
-
-<!-- Navigation -->
-
-<a href="#about" class="branch">
-<circle cx="260" cy="160" r="30" class="nav-circle"/>
-<text x="260" y="165">Über mich</text>
-</a>
-
-<a href="#skills" class="branch">
-<circle cx="640" cy="170" r="30" class="nav-circle"/>
-<text x="640" y="175">Skills</text>
-</a>
-
-<a href="#projects" class="branch">
-<circle cx="210" cy="230" r="30" class="nav-circle"/>
-<text x="210" y="235">Projekte</text>
-</a>
-
-<a href="#zeugnisse" class="branch">
-<circle cx="710" cy="230" r="30" class="nav-circle"/>
-<text x="710" y="235">Docs</text>
-</a>
-
-<a href="lebenslauf.pdf" target="_blank" class="branch">
-<circle cx="450" cy="110" r="30" class="nav-circle"/>
-<text x="450" y="115">CV</text>
-</a>
-
-<a href="#contact" class="branch">
-<circle cx="450" cy="260" r="30" class="nav-circle"/>
-<text x="450" y="265">Kontakt</text>
-</a>
-
-</svg>
-
-</section>
+</div>
 
 <!-- ===================== -->
 
 <div class="container">
 
 <section id="about">
-
 <h2>Über mich</h2>
 
 <p>
 Verantwortung ist für mich nicht der Position geschuldet, sondern der Aufgabe,
 Organisationen nachhaltig weiterzuentwickeln – ohne den Blick für Menschen oder Zahlen
-zu verlieren. Dabei verbinde ich unternehmerisches Denken mit Hands-on-Mentalität.
+zu verlieren.
 </p>
 
 </section>
@@ -317,8 +200,8 @@ zu verlieren. Dabei verbinde ich unternehmerisches Denken mit Hands-on-Mentalit�
 
 <h2>Fähigkeiten</h2>
 
-<div class="skill"><div class="skill-bar" data-width="95%">Projekt-, Budget- und Mitarbeiterverantwortung</div></div>
-<div class="skill"><div class="skill-bar" data-width="88%">Organisationsentwicklung und Prozessoptimierung</div></div>
+<div class="skill"><div class="skill-bar" data-width="95%">Projektmanagement</div></div>
+<div class="skill"><div class="skill-bar" data-width="88%">Organisationsentwicklung</div></div>
 <div class="skill"><div class="skill-bar" data-width="80%">Qualitätsmanagement</div></div>
 <div class="skill"><div class="skill-bar" data-width="75%">Digitalisierung</div></div>
 
@@ -328,9 +211,9 @@ zu verlieren. Dabei verbinde ich unternehmerisches Denken mit Hands-on-Mentalit�
 
 <h2>Projekte</h2>
 
-<div class="project"><h3>Projekt 1 – Portfolio Website</h3></div>
-<div class="project"><h3>Projekt 2 – Web App</h3></div>
-<div class="project"><h3>Projekt 3 – Datenanalyse</h3></div>
+<div class="project">Portfolio Website</div>
+<div class="project">Web App</div>
+<div class="project">Datenanalyse</div>
 
 </section>
 
@@ -342,21 +225,4 @@ zu verlieren. Dabei verbinde ich unternehmerisches Denken mit Hands-on-Mentalit�
 
 </section>
 
-<section id="contact">
-
-<h2>Kontakt</h2>
-
-<p>Email: beispiel@email.at</p>
-
-</section>
-
-</div>
-
-<footer>
-
-© 2026 Schwank Engelbert
-
-</footer>
-
-</body>
-</html>
+<section
