@@ -2,20 +2,22 @@
 
 <html lang="de">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Schwank Engelbert - Bewerbungsseite</title>
 
 <style>
 
+html{scroll-behavior:smooth;}
+
 body{
 margin:0;
-font-family:Arial;
+font-family:Arial, sans-serif;
 background:#FFE0BA;
 color:#462106;
 }
-
-/* Header */
 
 header{
 background:#462106;
@@ -41,71 +43,77 @@ border-radius:8px;
 }
 
 /* ===================== */
-/* BAUM */
+/* OLIVENBAUM */
 /* ===================== */
 
-.tree-area{
+.tree-nav{
 display:flex;
 justify-content:center;
-margin:80px 0;
+align-items:center;
+margin:80px 0 40px 0;
 }
 
 .tree{
-width:700px;
-max-width:90%;
+width:100%;
+max-width:900px;
 }
 
 /* Stamm */
 
 .trunk{
 fill:none;
-stroke:#5b3212;
-stroke-width:35;
+stroke:#6b3f1c;
+stroke-width:45;
 stroke-linecap:round;
-
-stroke-dasharray:600;
-stroke-dashoffset:600;
-
-animation:growTrunk 2s forwards;
+stroke-linejoin:round;
 }
 
-/* Äste */
+/* Hauptäste */
 
 .branch{
 fill:none;
-stroke:#5b3212;
-stroke-width:10;
+stroke:#6b3f1c;
+stroke-width:14;
 stroke-linecap:round;
+}
 
-stroke-dasharray:300;
-stroke-dashoffset:300;
+/* feine Äste */
 
-animation:growBranch 2s forwards;
-animation-delay:1.5s;
+.small-branch{
+fill:none;
+stroke:#7a4a22;
+stroke-width:6;
+stroke-linecap:round;
+}
+
+/* Baumkrone */
+
+.crown{
+fill:#6aa84f;
+opacity:0.95;
 }
 
 /* Blätter */
 
 .leaf{
-fill:#4CAF50;
-transform-origin:center;
-animation:wind 4s infinite ease-in-out;
+fill:#4f7f3a;
+opacity:0.9;
 }
 
-/* Navigationsfrüchte */
+/* Navigation */
 
 .nav-circle{
-fill:#2e7d32;
+fill:#2f5d2f;
 cursor:pointer;
 transition:0.3s;
 }
 
 .nav-circle:hover{
-fill:#1b5e20;
-transform:scale(1.1);
+transform:scale(1.2);
+fill:#1f421f;
 }
 
-.tree-text{
+.branch text{
 fill:white;
 font-size:16px;
 font-weight:bold;
@@ -113,28 +121,12 @@ text-anchor:middle;
 pointer-events:none;
 }
 
-/* Animationen */
-
-@keyframes growTrunk{
-to{stroke-dashoffset:0;}
-}
-
-@keyframes growBranch{
-to{stroke-dashoffset:0;}
-}
-
-@keyframes wind{
-0%{transform:rotate(-1deg);}
-50%{transform:rotate(1deg);}
-100%{transform:rotate(-1deg);}
-}
-
 /* ===================== */
 
 .container{
 max-width:900px;
 margin:auto;
-padding:30px;
+padding:30px 20px;
 }
 
 section{margin-bottom:60px;}
@@ -143,6 +135,8 @@ h2{
 border-bottom:2px solid #462106;
 padding-bottom:8px;
 }
+
+#about p{text-align:justify;}
 
 .skill{
 background:#d7b08c;
@@ -185,8 +179,10 @@ color:#FFE0BA;
 window.onload=function(){
 
 document.querySelectorAll(".skill-bar").forEach(function(bar){
+
 let value=bar.getAttribute("data-width");
 bar.style.width=value;
+
 });
 
 }
@@ -211,85 +207,118 @@ bar.style.width=value;
 
 <!-- ===================== -->
 
-<!-- WACHSENDER BAUM -->
+<!-- OLIVENBAUM NAVIGATION -->
 
 <!-- ===================== -->
 
-<div class="tree-area">
+<section class="tree-nav">
 
-<svg viewBox="0 0 600 500" class="tree">
+<svg viewBox="0 0 900 520" class="tree">
+
+<!-- Baumkronen -->
+
+<ellipse cx="260" cy="170" rx="120" ry="90" class="crown"/>
+<ellipse cx="420" cy="130" rx="150" ry="110" class="crown"/>
+<ellipse cx="610" cy="180" rx="120" ry="90" class="crown"/>
+<ellipse cx="460" cy="210" rx="160" ry="100" class="crown"/>
 
 <!-- Stamm -->
 
-<path d="M300 480 C300 420 300 350 300 250" class="trunk"/>
+<path class="trunk"
+d="M450 520
+C420 440 480 390 440 330
+C410 280 470 250 450 200"/>
 
-<!-- Äste -->
+<!-- Hauptäste -->
 
-<path d="M300 300 C240 260 200 220 160 180" class="branch"/>
-<path d="M300 300 C360 260 400 220 440 180" class="branch"/>
-<path d="M300 260 C250 200 200 150 160 120" class="branch"/>
-<path d="M300 260 C350 200 400 150 440 120" class="branch"/>
+<path class="branch"
+d="M450 200 C350 170 300 150 240 150"/>
+
+<path class="branch"
+d="M450 200 C550 170 600 150 670 160"/>
+
+<path class="branch"
+d="M430 260 C340 240 280 210 220 200"/>
+
+<path class="branch"
+d="M470 260 C560 240 640 210 720 200"/>
+
+<!-- feine Äste -->
+
+<path class="small-branch" d="M300 170 C260 160 230 150 210 140"/>
+<path class="small-branch" d="M340 150 C320 140 300 130 280 120"/>
+<path class="small-branch" d="M540 160 C580 150 610 140 640 130"/>
+<path class="small-branch" d="M600 200 C640 190 670 180 700 170"/>
 
 <!-- Blätter -->
 
-<ellipse cx="200" cy="140" rx="120" ry="80" class="leaf"/>
-<ellipse cx="400" cy="140" rx="120" ry="80" class="leaf"/>
-<ellipse cx="300" cy="90" rx="140" ry="90" class="leaf"/>
+<ellipse class="leaf" cx="300" cy="150" rx="12" ry="6"/>
+<ellipse class="leaf" cx="330" cy="130" rx="12" ry="6"/>
+<ellipse class="leaf" cx="360" cy="160" rx="12" ry="6"/>
+<ellipse class="leaf" cx="500" cy="140" rx="12" ry="6"/>
+<ellipse class="leaf" cx="540" cy="160" rx="12" ry="6"/>
+<ellipse class="leaf" cx="580" cy="180" rx="12" ry="6"/>
+<ellipse class="leaf" cx="260" cy="200" rx="12" ry="6"/>
+<ellipse class="leaf" cx="640" cy="210" rx="12" ry="6"/>
 
 <!-- Navigation -->
 
-<a href="#about">
-<circle cx="200" cy="130" r="30" class="nav-circle"/>
-<text x="200" y="135" class="tree-text">Über mich</text>
+<a href="#about" class="branch">
+<circle cx="260" cy="160" r="30" class="nav-circle"/>
+<text x="260" y="165">Über mich</text>
 </a>
 
-<a href="#skills">
-<circle cx="400" cy="130" r="30" class="nav-circle"/>
-<text x="400" y="135" class="tree-text">Skills</text>
+<a href="#skills" class="branch">
+<circle cx="640" cy="170" r="30" class="nav-circle"/>
+<text x="640" y="175">Skills</text>
 </a>
 
-<a href="#projects">
-<circle cx="160" cy="200" r="30" class="nav-circle"/>
-<text x="160" y="205" class="tree-text">Projekte</text>
+<a href="#projects" class="branch">
+<circle cx="210" cy="230" r="30" class="nav-circle"/>
+<text x="210" y="235">Projekte</text>
 </a>
 
-<a href="#zeugnisse">
-<circle cx="440" cy="200" r="30" class="nav-circle"/>
-<text x="440" y="205" class="tree-text">Docs</text>
+<a href="#zeugnisse" class="branch">
+<circle cx="710" cy="230" r="30" class="nav-circle"/>
+<text x="710" y="235">Docs</text>
 </a>
 
-<a href="lebenslauf.pdf" target="_blank">
-<circle cx="300" cy="80" r="30" class="nav-circle"/>
-<text x="300" y="85" class="tree-text">CV</text>
+<a href="lebenslauf.pdf" target="_blank" class="branch">
+<circle cx="450" cy="110" r="30" class="nav-circle"/>
+<text x="450" y="115">CV</text>
 </a>
 
-<a href="#contact">
-<circle cx="300" cy="200" r="30" class="nav-circle"/>
-<text x="300" y="205" class="tree-text">Kontakt</text>
+<a href="#contact" class="branch">
+<circle cx="450" cy="260" r="30" class="nav-circle"/>
+<text x="450" y="265">Kontakt</text>
 </a>
 
 </svg>
 
-</div>
+</section>
 
 <!-- ===================== -->
 
 <div class="container">
 
 <section id="about">
+
 <h2>Über mich</h2>
+
 <p>
-Verantwortung ist für mich nicht der Position geschuldet,
-sondern der Aufgabe Organisationen nachhaltig weiterzuentwickeln.
+Verantwortung ist für mich nicht der Position geschuldet, sondern der Aufgabe,
+Organisationen nachhaltig weiterzuentwickeln – ohne den Blick für Menschen oder Zahlen
+zu verlieren. Dabei verbinde ich unternehmerisches Denken mit Hands-on-Mentalität.
 </p>
+
 </section>
 
 <section id="skills">
 
 <h2>Fähigkeiten</h2>
 
-<div class="skill"><div class="skill-bar" data-width="95%">Projektmanagement</div></div>
-<div class="skill"><div class="skill-bar" data-width="88%">Organisationsentwicklung</div></div>
+<div class="skill"><div class="skill-bar" data-width="95%">Projekt-, Budget- und Mitarbeiterverantwortung</div></div>
+<div class="skill"><div class="skill-bar" data-width="88%">Organisationsentwicklung und Prozessoptimierung</div></div>
 <div class="skill"><div class="skill-bar" data-width="80%">Qualitätsmanagement</div></div>
 <div class="skill"><div class="skill-bar" data-width="75%">Digitalisierung</div></div>
 
@@ -299,9 +328,9 @@ sondern der Aufgabe Organisationen nachhaltig weiterzuentwickeln.
 
 <h2>Projekte</h2>
 
-<div class="project">Portfolio Website</div>
-<div class="project">Web App</div>
-<div class="project">Datenanalyse</div>
+<div class="project"><h3>Projekt 1 – Portfolio Website</h3></div>
+<div class="project"><h3>Projekt 2 – Web App</h3></div>
+<div class="project"><h3>Projekt 3 – Datenanalyse</h3></div>
 
 </section>
 
