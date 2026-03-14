@@ -1,44 +1,333 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schwank Engelbert - Bewerbungsseite</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#FFE0BA;
+color:#462106;
+}
+
+/* Header */
+
+header{
+background:#462106;
+color:#FFE0BA;
+padding:20px;
+position:relative;
+}
+
+.header-name h1{
+margin:0;
+font-size:46px;
+}
+
+.header-image{
+position:absolute;
+right:20px;
+top:20px;
+}
+
+.header-image img{
+height:110px;
+border-radius:8px;
+}
+
 /* ===================== */
-/* Realistischer Baum */
+/* BAUM */
 /* ===================== */
+
+.tree-area{
+display:flex;
+justify-content:center;
+margin:80px 0;
+}
 
 .tree{
-width:100%;
-max-width:900px;
-height:auto;
+width:700px;
+max-width:90%;
 }
+
+/* Stamm */
 
 .trunk{
-fill:#5b3212;
+fill:none;
+stroke:#5b3212;
+stroke-width:35;
+stroke-linecap:round;
+
+stroke-dasharray:600;
+stroke-dashoffset:600;
+
+animation:growTrunk 2s forwards;
 }
 
-.branch-path{
+/* Äste */
+
+.branch{
+fill:none;
 stroke:#5b3212;
 stroke-width:10;
-fill:none;
 stroke-linecap:round;
-transition:0.3s;
-}
 
-.branch text{
-fill:#462106;
-font-size:20px;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
-}
+stroke-dasharray:300;
+stroke-dashoffset:300;
 
-.branch:hover .branch-path{
-stroke-width:14;
-}
-
-.branch:hover text{
-font-size:26px;
+animation:growBranch 2s forwards;
+animation-delay:1.5s;
 }
 
 /* Blätter */
 
 .leaf{
 fill:#4CAF50;
-opacity:0.9;
+transform-origin:center;
+animation:wind 4s infinite ease-in-out;
 }
+
+/* Navigationsfrüchte */
+
+.nav-circle{
+fill:#2e7d32;
+cursor:pointer;
+transition:0.3s;
+}
+
+.nav-circle:hover{
+fill:#1b5e20;
+transform:scale(1.1);
+}
+
+.tree-text{
+fill:white;
+font-size:16px;
+font-weight:bold;
+text-anchor:middle;
+pointer-events:none;
+}
+
+/* Animationen */
+
+@keyframes growTrunk{
+to{stroke-dashoffset:0;}
+}
+
+@keyframes growBranch{
+to{stroke-dashoffset:0;}
+}
+
+@keyframes wind{
+0%{transform:rotate(-1deg);}
+50%{transform:rotate(1deg);}
+100%{transform:rotate(-1deg);}
+}
+
+/* ===================== */
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+section{margin-bottom:60px;}
+
+h2{
+border-bottom:2px solid #462106;
+padding-bottom:8px;
+}
+
+.skill{
+background:#d7b08c;
+border-radius:10px;
+margin:12px 0;
+overflow:hidden;
+}
+
+.skill-bar{
+height:20px;
+width:0;
+background:#462106;
+color:#FFE0BA;
+text-align:right;
+padding-right:10px;
+line-height:20px;
+border-radius:10px;
+transition:width 2s;
+}
+
+.project{
+background:#462106;
+color:#FFE0BA;
+padding:20px;
+margin-top:15px;
+border-radius:10px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#462106;
+color:#FFE0BA;
+}
+
+</style>
+
+<script>
+
+window.onload=function(){
+
+document.querySelectorAll(".skill-bar").forEach(function(bar){
+let value=bar.getAttribute("data-width");
+bar.style.width=value;
+});
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="header-name">
+<h1>Schwank Engelbert</h1>
+</div>
+
+<div class="header-image">
+<img src="Foto.png">
+</div>
+
+</header>
+
+<!-- ===================== -->
+
+<!-- WACHSENDER BAUM -->
+
+<!-- ===================== -->
+
+<div class="tree-area">
+
+<svg viewBox="0 0 600 500" class="tree">
+
+<!-- Stamm -->
+
+<path d="M300 480 C300 420 300 350 300 250" class="trunk"/>
+
+<!-- Äste -->
+
+<path d="M300 300 C240 260 200 220 160 180" class="branch"/>
+<path d="M300 300 C360 260 400 220 440 180" class="branch"/>
+<path d="M300 260 C250 200 200 150 160 120" class="branch"/>
+<path d="M300 260 C350 200 400 150 440 120" class="branch"/>
+
+<!-- Blätter -->
+
+<ellipse cx="200" cy="140" rx="120" ry="80" class="leaf"/>
+<ellipse cx="400" cy="140" rx="120" ry="80" class="leaf"/>
+<ellipse cx="300" cy="90" rx="140" ry="90" class="leaf"/>
+
+<!-- Navigation -->
+
+<a href="#about">
+<circle cx="200" cy="130" r="30" class="nav-circle"/>
+<text x="200" y="135" class="tree-text">Über mich</text>
+</a>
+
+<a href="#skills">
+<circle cx="400" cy="130" r="30" class="nav-circle"/>
+<text x="400" y="135" class="tree-text">Skills</text>
+</a>
+
+<a href="#projects">
+<circle cx="160" cy="200" r="30" class="nav-circle"/>
+<text x="160" y="205" class="tree-text">Projekte</text>
+</a>
+
+<a href="#zeugnisse">
+<circle cx="440" cy="200" r="30" class="nav-circle"/>
+<text x="440" y="205" class="tree-text">Docs</text>
+</a>
+
+<a href="lebenslauf.pdf" target="_blank">
+<circle cx="300" cy="80" r="30" class="nav-circle"/>
+<text x="300" y="85" class="tree-text">CV</text>
+</a>
+
+<a href="#contact">
+<circle cx="300" cy="200" r="30" class="nav-circle"/>
+<text x="300" y="205" class="tree-text">Kontakt</text>
+</a>
+
+</svg>
+
+</div>
+
+<!-- ===================== -->
+
+<div class="container">
+
+<section id="about">
+<h2>Über mich</h2>
+<p>
+Verantwortung ist für mich nicht der Position geschuldet,
+sondern der Aufgabe Organisationen nachhaltig weiterzuentwickeln.
+</p>
+</section>
+
+<section id="skills">
+
+<h2>Fähigkeiten</h2>
+
+<div class="skill"><div class="skill-bar" data-width="95%">Projektmanagement</div></div>
+<div class="skill"><div class="skill-bar" data-width="88%">Organisationsentwicklung</div></div>
+<div class="skill"><div class="skill-bar" data-width="80%">Qualitätsmanagement</div></div>
+<div class="skill"><div class="skill-bar" data-width="75%">Digitalisierung</div></div>
+
+</section>
+
+<section id="projects">
+
+<h2>Projekte</h2>
+
+<div class="project">Portfolio Website</div>
+<div class="project">Web App</div>
+<div class="project">Datenanalyse</div>
+
+</section>
+
+<section id="zeugnisse">
+
+<h2>Zeugnisse</h2>
+
+<p>Hier können später Dokumente eingefügt werden.</p>
+
+</section>
+
+<section id="contact">
+
+<h2>Kontakt</h2>
+
+<p>Email: beispiel@email.at</p>
+
+</section>
+
+</div>
+
+<footer>
+
+© 2026 Schwank Engelbert
+
+</footer>
+
+</body>
+</html>
