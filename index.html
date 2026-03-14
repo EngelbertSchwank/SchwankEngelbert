@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Engelbert Schwank - Bewerbungsseite</title>
+
+<style>
+
+html{scroll-behavior:smooth;}
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#FFE0BA;
+color:#462106;
+}
+
+header{
+background:#462106;
+color:#FFE0BA;
+padding:20px;
+position:relative;
+}
+
+.header-name h1{
+margin:0;
+font-size:46px;
+}
+
+.header-nav{
+margin-top:8px;
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+align-items:center;
+font-size:14px;
+}
+
+.header-nav a{
+color:#FFE0BA;
+text-decoration:none;
+font-weight:bold;
+}
+
+.header-nav a:hover{text-decoration:underline;}
+
+.cv-button{
+background:#FFE0BA;
+color:#462106 !important;
+padding:6px 14px;
+border-radius:6px;
+font-weight:bold;
+}
+
+.header-image{
+position:absolute;
+right:20px;
+top:20px;
+}
+
+.header-image img{
+height:110px;
+border-radius:8px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px 20px;
+}
+
+section{margin-bottom:60px;}
+
+h2{
+border-bottom:2px solid #462106;
+padding-bottom:8px;
+}
+
+#about p{text-align:justify;}
+
+/* Skills */
+
+.skill{
+background:#d7b08c;
+border-radius:10px;
+margin:12px 0;
+overflow:hidden;
+}
+
+.skill-bar{
+height:20px;
+width:0;
+background:#462106;
+color:#FFE0BA;
+text-align:right;
+padding-right:10px;
+line-height:20px;
+border-radius:10px;
+transition:width 2s;
+}
+
+/* Projekte */
+
+.project{
+background:#462106;
+color:#FFE0BA;
+padding:20px;
+margin-top:15px;
+border-radius:10px;
+}
+
+/* Ordner */
+
+details{margin-top:20px;}
+
+summary{
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+padding:10px;
+background:#462106;
+color:#FFE0BA;
+border-radius:6px;
+}
+
+/* Dokumente */
+
+.documents{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.doc-card{
+background:#462106;
+color:#FFE0BA;
+padding:20px;
+border-radius:10px;
+text-align:center;
+cursor:pointer;
+transition:0.3s;
+}
+
+.doc-card:hover{
+transform:translateY(-5px);
+box-shadow:0 6px 15px rgba(0,0,0,0.25);
+}
+
+.doc-icon{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.doc-title{
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.download-btn{
+display:inline-block;
+margin-top:8px;
+background:#FFE0BA;
+color:#462106;
+padding:5px 10px;
+border-radius:5px;
+font-size:13px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* Viewer */
+
+.viewer{
+margin-top:30px;
+height:650px;
+border-radius:10px;
+overflow:hidden;
+display:none;
+background:white;
+}
+
+.viewer iframe{
+width:100%;
+height:100%;
+border:none;
+}
+
+.viewer-header{
+background:#462106;
+color:#FFE0BA;
+padding:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#462106;
+color:#FFE0BA;
+}
+
+</style>
+
+<script>
+
+function openPDF(file,title){
+
+document.getElementById("pdfviewer").style.display="block";
+document.getElementById("pdfviewerframe").src=file;
+document.getElementById("pdftitle").innerText=title;
+document.getElementById("pdfdownload").href=file;
+
+window.location="#pdfviewer";
+
+}
+
+window.onload=function(){
+
+document.querySelectorAll(".skill-bar").forEach(function(bar){
+
+let value=bar.getAttribute("data-width");
+bar.style.width=value;
+
+});
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="header-name">
+<h1>Engelbert Schwank</h1>
+</div>
+
+<div class="header-nav">
+
+<a class="cv-button" href="lebenslauf.pdf" target="_blank">
+Lebenslauf herunterladen
+</a>
+
+<a href="#about">Über mich</a> <a href="#skills">Fähigkeiten</a> <a href="#projects">Projekte</a> <a href="#zeugnisse">Zeugnisse</a> <a href="#contact">Kontakt</a>
+
+</div>
+
+<div class="header-image">
+<img src="Foto.png">
+</div>
+
+</header>
+
+<div class="container">
+
+<section id="about">
+
+<h2>Über mich</h2>
+
+<p>
+Verantwortung ist für mich nicht der Position geschuldet, sondern der Aufgabe,
+Organisationen nachhaltig weiterzuentwickeln – ohne den Blick für Menschen oder Zahlen
+zu verlieren. Dabei verbinde ich unternehmerisches Denken mit Hands-on-Mentalität.
+</p>
+
+</section>
+
+<section id="skills">
+
+<h2>Fähigkeiten</h2>
+
+<div class="skill"><div class="skill-bar" data-width="95%">Projekt-, Budget- und Mitarbeiterverantwortung</div></div>
+<div class="skill"><div class="skill-bar" data-width="88%">Organisationsentwicklung und Prozessoptimierung</div></div>
+<div class="skill"><div class="skill-bar" data-width="80%">Qualitätsmanagement</div></div>
+<div class="skill"><div class="skill-bar" data-width="75%">Digitalisierung</div></div>
+
+</section>
+
+<section id="projects">
+
+<h2>Projekte</h2>
+
+<div class="project"><h3>Projekt 1 – Portfolio Website</h3><p>Portfolio Website in HTML und CSS.</p></div>
+<div class="project"><h3>Projekt 2 – Web App</h3><p>Webanwendung zur Aufgabenverwaltung.</p></div>
+<div class="project"><h3>Projekt 3 – Datenanalyse</h3><p>Python Skript zur Datenanalyse.</p></div>
+<div class="project"><h3>Projekt 4 – Blog System</h3><p>Eigenes Content Management System.</p></div>
+<div class="project"><h3>Projekt 5 – Mobile App</h3><p>App zur Organisation von Terminen.</p></div>
+<div class="project"><h3>Projekt 6 – API Entwicklung</h3><p>REST API für Verwaltungssystem.</p></div>
+<div class="project"><h3>Projekt 7 – Automatisierung</h3><p>Automatisierung wiederkehrender Prozesse.</p></div>
+
+</section>
+
+<section id="zeugnisse">
+
+<h2>Zeugnisse</h2>
+
+<details>
+
+<summary>📂 Dienstzeugnis</summary>
+
+<div class="documents">
+
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis1.pdf','Dienstzeugnis 1')"><div class="doc-icon">📄</div><div class="doc-title">Dienstzeugnis 1</div></div>
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis2.pdf','Dienstzeugnis 2')"><div class="doc-icon">📄</div><div class="doc-title">Dienstzeugnis 2</div></div>
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis3.pdf','Dienstzeugnis 3')"><div class="doc-icon">📄</div><div class="doc-title">Dienstzeugnis 3</div></div>
+
+</div>
+
+</details>
+
+<details>
+
+<summary>📂 Aus- und Weiterbildungsnachweis</summary>
+
+<div class="documents">
+
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis4.pdf','Nachweis 1')"><div class="doc-icon">📄</div><div class="doc-title">Nachweis 1</div></div>
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis5.pdf','Nachweis 2')"><div class="doc-icon">📄</div><div class="doc-title">Nachweis 2</div></div>
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis6.pdf','Nachweis 3')"><div class="doc-icon">📄</div><div class="doc-title">Nachweis 3</div></div>
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis7.pdf','Nachweis 4')"><div class="doc-icon">📄</div><div class="doc-title">Nachweis 4</div></div>
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis8.pdf','Nachweis 5')"><div class="doc-icon">📄</div><div class="doc-title">Nachweis 5</div></div>
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis9.pdf','Nachweis 6')"><div class="doc-icon">📄</div><div class="doc-title">Nachweis 6</div></div>
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis10.pdf','Nachweis 7')"><div class="doc-icon">📄</div><div class="doc-title">Nachweis 7</div></div>
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis11.pdf','Nachweis 8')"><div class="doc-icon">📄</div><div class="doc-title">Nachweis 8</div></div>
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis12.pdf','Nachweis 9')"><div class="doc-icon">📄</div><div class="doc-title">Nachweis 9</div></div>
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis13.pdf','Nachweis 10')"><div class="doc-icon">📄</div><div class="doc-title">Nachweis 10</div></div>
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis14.pdf','Nachweis 11')"><div class="doc-icon">📄</div><div class="doc-title">Nachweis 11</div></div>
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis15.pdf','Nachweis 12')"><div class="doc-icon">📄</div><div class="doc-title">Nachweis 12</div></div>
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis16.pdf','Nachweis 13')"><div class="doc-icon">📄</div><div class="doc-title">Nachweis 13</div></div>
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis17.pdf','Nachweis 14')"><div class="doc-icon">📄</div><div class="doc-title">Nachweis 14</div></div>
+<div class="doc-card" onclick="openPDF('zeugnisse/zeugnis18.pdf','Nachweis 15')"><div class="doc-icon">📄</div><div class="doc-title">Nachweis 15</div></div>
+
+</div>
+
+</details>
+
+<div id="pdfviewer" class="viewer">
+
+<div class="viewer-header">
+
+<span id="pdftitle">Dokument</span>
+
+<a id="pdfdownload" class="download-btn" target="_blank">Download</a>
+
+</div>
+
+<iframe id="pdfviewerframe"></iframe>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>Kontakt</h2>
+
+<p>Email: engelbert@gmx.at</p>
+<p>LinkedIn: Profil-Link</p>
+<p>GitHub: Profil-Link</p>
+
+</section>
+
+</div>
+
+<footer>
+
+© 2026 Engelbert Schwank
+
+</footer>
+
+</body>
+</html>
