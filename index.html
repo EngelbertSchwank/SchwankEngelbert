@@ -7,9 +7,13 @@
 
   <style>
     :root{
+      /* Exakt aus deinem SVG-Verlauf (radialGradient18) */
       --bg-olive-light:#F1F1E7;
       --bg-olive-dark:#DCDFC5;
+
+      /* Baum-Grün aus deinem SVG (z.B. #58852c) */
       --olive-green:#58852C;
+
       --text:#2B2B2B;
       --muted:#4A4A4A;
 
@@ -21,8 +25,8 @@
       --name-size: clamp(34px, 4.2vw, 60px);
       --subtitle-size: clamp(14px, 1.6vw, 18px);
 
-      /* Tree size: this ensures the tree is always visible */
-      --tree-max: clamp(54px, 8vw, 92px);
+      /* Tree size */
+      --tree-max: clamp(54px, 8vw, 110px);
     }
 
     *{ box-sizing:border-box; }
@@ -36,24 +40,27 @@
 
     /* ===== HEADER / HERO ===== */
     header.hero{
+      /* Der Bereich "wo der Baum ist" bekommt die Hintergrundfarbe/den Verlauf */
       background: radial-gradient(circle, var(--bg-olive-light) 0%, var(--bg-olive-dark) 100%);
       display:flex;
       align-items:center;
       gap: var(--hero-gap);
       padding: var(--hero-pad-y) var(--hero-pad-x);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
 
-    /* Tree: never disappears, never "pushes" header too tall */
-    .hero-tree{
+    /* ✅ DAS ist dein echtes SVG als Datei */
+    img.hero-tree{
       display:block;
-      width:auto;
-      height:auto;
-      max-height: var(--tree-max);
       flex: 0 0 auto;
+      height: var(--tree-max);
+      width: auto;
+      /* optional: kleine optische Tiefe */
+      filter: drop-shadow(0 1px 0 rgba(0,0,0,0.05));
     }
 
     .hero-text{
-      min-width: 0; /* prevents text overflow issues */
+      min-width: 0;
     }
 
     .hero-name{
@@ -61,6 +68,7 @@
       font-size: var(--name-size);
       line-height: 1.0;
       color: var(--olive-green);
+      font-weight: 850;
       letter-spacing: -0.02em;
     }
 
@@ -69,6 +77,7 @@
       color: var(--muted);
       font-size: var(--subtitle-size);
       line-height: 1.35;
+      max-width: 70ch;
     }
 
     /* ===== MAIN CONTENT ===== */
@@ -86,14 +95,12 @@
       background: #fff;
     }
 
-    /* Optional: nicer headings */
     h2{
       margin-top: 0;
     }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 520px){
-      /* Still 1 row, compact spacing */
       header.hero{
         gap: 12px;
         padding: 12px 14px;
@@ -103,13 +110,12 @@
         font-size: clamp(30px, 7vw, 40px);
       }
 
-      .hero-tree{
-        max-height: 64px; /* keeps it visible but compact on phones */
+      img.hero-tree{
+        height: 64px;
       }
     }
 
     @media (max-width: 380px){
-      /* If it gets too tight: stack tree and text */
       header.hero{
         flex-direction: column;
         align-items: center;
@@ -125,17 +131,15 @@
 <body>
 
   <header class="hero">
-    <!-- OLIVENBAUM (SVG) -->
-    <svg class="hero-tree" viewBox="0 0 377 377" aria-hidden="true" focusable="false">
-      <g transform="scale(1,-1) translate(0,-377)">
-        <!-- Krone -->
-        <circle cx="188" cy="220" r="80" fill="#58852C"/>
-        <circle cx="150" cy="250" r="60" fill="#58852C"/>
-        <circle cx="230" cy="250" r="60" fill="#58852C"/>
-        <!-- Stamm -->
-        <rect x="180" y="120" width="16" height="120" fill="#6b4f2a"/>
-      </g>
-    </svg>
+    <!-- ✅ HIER wird deine Datei eingebunden -->
+    <!-- Wenn die SVG im gleichen Ordner liegt: -->
+    <img class="hero-tree"
+         src="./Olive_Tree_vector_background_1_.svg"
+         alt="Olivenbaum" />
+
+    <!-- Falls du die SVG in /assets/ legst, dann NUR so ändern:
+         src="./assets/Olive_Tree_vector_background_1_.svg"
+    -->
 
     <div class="hero-text">
       <h1 class="hero-name">DEIN NAME</h1>
