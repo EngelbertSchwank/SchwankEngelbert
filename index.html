@@ -7,25 +7,19 @@
 
   <style>
     :root{
-      /* Exakt aus deinem SVG-Verlauf (radialGradient18) */
+      /* Farben */
       --bg-olive-light:#F1F1E7;
       --bg-olive-dark:#DCDFC5;
-
-      /* Baum-Grün */
       --olive-green:#58852C;
-
-      /* Text */
       --text:#2B2B2B;
 
       /* Abstände / Größen */
       --pad-x: clamp(14px, 3vw, 28px);
       --pad-y: clamp(12px, 2.2vw, 22px);
-
       --name-size: clamp(34px, 4.2vw, 60px);
 
-      /* Baumgröße im Bereich darunter */
-      --tree-height: clamp(120px, 22vw, 240px);
-      /* kleiner: clamp(90px, 16vw, 170px); */
+      /* Baumgröße */
+      --tree-height: clamp(200px, 32vw, 420px);
     }
 
     *{ box-sizing:border-box; }
@@ -37,7 +31,7 @@
       background:#fff;
     }
 
-    /* ===== HEADER: nur Name (ohne Subtitle) ===== */
+    /* ===== HEADER ===== */
     header.hero{
       background: radial-gradient(circle, var(--bg-olive-light) 0%, var(--bg-olive-dark) 100%);
       padding: var(--pad-y) var(--pad-x);
@@ -47,6 +41,7 @@
     .hero-inner{
       max-width: 900px;
       margin: 0 auto;
+      text-align: center; /* Name zentrieren */
     }
 
     .hero-name{
@@ -58,10 +53,10 @@
       letter-spacing: -0.02em;
     }
 
-    /* ===== BAUM-BEREICH darunter ===== */
+    /* ===== BAUM ===== */
     .tree-band{
       background: radial-gradient(circle, var(--bg-olive-light) 0%, var(--bg-olive-dark) 100%);
-      padding: clamp(10px, 2vw, 18px) var(--pad-x) clamp(14px, 3vw, 26px);
+      padding: 10px 0 20px 0; /* Baum links */
       border-bottom: 1px solid rgba(0,0,0,0.06);
     }
 
@@ -100,7 +95,7 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 520px){
-      img.tree{ height: clamp(110px, 34vw, 190px); }
+      img.tree{ height: clamp(150px, 40vw, 300px); }
     }
 
     @media (max-width: 380px){
@@ -112,24 +107,19 @@
 
 <body>
 
-  <!-- HEADER (nur Name) -->
+  <!-- HEADER -->
   <header class="hero">
     <div class="hero-inner">
       <h1 class="hero-name">DEIN NAME</h1>
     </div>
   </header>
 
-  <!-- BAUM DARUNTER -->
+  <!-- BAUM -->
   <section class="tree-band" aria-label="Olivenbaum">
     <div class="tree-inner">
-      <!-- ✅ SVG-Datei einbinden (Pfad ggf. anpassen) -->
       <img class="tree"
            src="./Olive_Tree_vector_background_1_.svg"
            alt="Olivenbaum" />
-
-      <!-- Wenn die Datei in /assets/ liegt, nimm stattdessen:
-      <img class="tree" src="./assets/Olive_Tree_vector_background_1_.svg" alt="Olivenbaum" />
-      -->
     </div>
   </section>
 
