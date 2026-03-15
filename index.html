@@ -16,18 +16,16 @@
 
       /* Text */
       --text:#2B2B2B;
-      --muted:#4A4A4A;
 
       /* Abstände / Größen */
       --pad-x: clamp(14px, 3vw, 28px);
       --pad-y: clamp(12px, 2.2vw, 22px);
 
       --name-size: clamp(34px, 4.2vw, 60px);
-      --subtitle-size: clamp(14px, 1.6vw, 18px);
 
       /* Baumgröße im Bereich darunter */
       --tree-height: clamp(120px, 22vw, 240px);
-      /* wenn du ihn kleiner willst: z.B. clamp(90px, 16vw, 170px) */
+      /* kleiner: clamp(90px, 16vw, 170px); */
     }
 
     *{ box-sizing:border-box; }
@@ -39,7 +37,7 @@
       background:#fff;
     }
 
-    /* ===== HEADER: nur Text (ohne Baum) ===== */
+    /* ===== HEADER: nur Name (ohne Subtitle) ===== */
     header.hero{
       background: radial-gradient(circle, var(--bg-olive-light) 0%, var(--bg-olive-dark) 100%);
       padding: var(--pad-y) var(--pad-x);
@@ -60,14 +58,6 @@
       letter-spacing: -0.02em;
     }
 
-    .hero-subtitle{
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: var(--subtitle-size);
-      line-height: 1.35;
-      max-width: 75ch;
-    }
-
     /* ===== BAUM-BEREICH darunter ===== */
     .tree-band{
       background: radial-gradient(circle, var(--bg-olive-light) 0%, var(--bg-olive-dark) 100%);
@@ -81,28 +71,14 @@
       display: flex;
       align-items: flex-start;
       justify-content: flex-start; /* Baum links */
-      gap: 16px;
     }
 
-    /* SVG als Datei */
     img.tree{
       height: var(--tree-height);
       width: auto;
       display:block;
       flex: 0 0 auto;
-
-      /* kleine optische Tiefe */
       filter: drop-shadow(0 1px 0 rgba(0,0,0,0.05));
-    }
-
-    /* optional: wenn du unter dem Baum noch Text willst */
-    .tree-note{
-      align-self: center;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.4;
-      max-width: 55ch;
-      display:none; /* auf "block" stellen, falls du das nutzen willst */
     }
 
     /* ===== MAIN CONTENT ===== */
@@ -124,48 +100,36 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 520px){
-      .hero-subtitle{ margin-top: 6px; }
       img.tree{ height: clamp(110px, 34vw, 190px); }
     }
 
     @media (max-width: 380px){
-      .tree-inner{
-        justify-content: center; /* sehr kleine Screens: Baum mittig */
-      }
-      header.hero{
-        text-align:center;
-      }
-      .hero-subtitle{
-        margin-left:auto;
-        margin-right:auto;
-      }
+      .tree-inner{ justify-content: center; }
+      header.hero{ text-align:center; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER (nur Text) -->
+  <!-- HEADER (nur Name) -->
   <header class="hero">
     <div class="hero-inner">
       <h1 class="hero-name">DEIN NAME</h1>
-      </div>
+    </div>
   </header>
 
   <!-- BAUM DARUNTER -->
   <section class="tree-band" aria-label="Olivenbaum">
     <div class="tree-inner">
-      <!-- ✅ Datei einbinden -->
-      <!-- wenn die SVG im gleichen Ordner liegt: -->
-      <img class="tree" src="./Olive_Tree_vector_background_1_.svg" alt="Olivenbaum" />
+      <!-- ✅ SVG-Datei einbinden (Pfad ggf. anpassen) -->
+      <img class="tree"
+           src="./Olive_Tree_vector_background_1_.svg"
+           alt="Olivenbaum" />
 
-      <!-- Falls du die Datei in /assets/ gelegt hast, so ändern:
+      <!-- Wenn die Datei in /assets/ liegt, nimm stattdessen:
       <img class="tree" src="./assets/Olive_Tree_vector_background_1_.svg" alt="Olivenbaum" />
       -->
-
-      <div class="tree-note">
-        (Optionaler Text neben dem Baum)
-      </div>
     </div>
   </section>
 
