@@ -76,17 +76,19 @@
       background: var(--glass);
     }
 
-    /* SVG als "Bild" */
+    /* ✅ SVG als Bild: nicht verzerren, sauber zentrieren */
     .tree{
       width: 100%;
       height: min(74vh, 700px);
       display:block;
-      object-fit: contain; /* bei SVG meist ok, bei img ebenfalls */
-      background: radial-gradient(900px 520px at 40% 40%, rgba(183,197,138,0.12), transparent 60%),
-                  linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.08) 60%, rgba(0,0,0,0.00));
+      object-fit: contain;     /* wichtig: nicht zuschneiden */
+      object-position: center; /* zentrieren */
+      background:
+        radial-gradient(900px 520px at 40% 40%, rgba(183,197,138,0.12), transparent 60%),
+        linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.08) 60%, rgba(0,0,0,0.00));
     }
 
-    /* Overlays: gibt „cineastischen“ Look */
+    /* Overlays für „cineastischen“ Look (optional) */
     .overlay{
       position:absolute;
       inset:0;
@@ -97,7 +99,7 @@
         linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.08) 60%, rgba(0,0,0,0.00));
     }
 
-    /* Grain (ohne extra Datei) */
+    /* Grain (optional) */
     .grain{
       position:absolute;
       inset:-40%;
@@ -158,14 +160,14 @@
   <header>
     <div class="wrap">
       <h1>Vorname Nachname</h1>
-      <p>Hauptmotiv: Alter Olivenbaum (SVG eingebunden)</p>
+      <p>Hauptmotiv: Alter Olivenbaum (SVG korrekt eingebunden)</p>
     </div>
   </header>
 
   <main>
     <div class="wrap">
       <section class="card" aria-label="Olivenbaum">
-        <!-- ✅ HIER wird deine SVG-Datei aus dem Repo geladen -->
+        <!-- ✅ KORREKT: SVG wird wirklich als Bild geladen -->
         <img
           class="tree"
           src="./Olive_Tree_vector_background_1_.svg"
@@ -187,14 +189,11 @@
   <footer>
     <div class="wrap">
       <div>© <span id="year"></span> Vorname Nachname</div>
-      <div>
-        Impressum · Datenschutz
-      </div>
+      <div>Impressum · Datenschutz</div>
     </div>
   </footer>
 
   <script>
-    // Jahr automatisch setzen
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
