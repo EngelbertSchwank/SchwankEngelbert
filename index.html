@@ -1,148 +1,114 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Digitale Bewerbungswebsite</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digitale Bewerbungswebsite</title>
 
-  <style>
-    :root{
-      /* Exakt aus deinem SVG-Verlauf */
-      --bg-olive-light: #F1F1E7; /* stop 0 */
-      --bg-olive-dark:  #DCDFC5; /* stop 1 */
+<style>
 
-      /* Baum-Grün aus deiner SVG (z.B. path22) */
-      --olive-green: #58852C;
+:root{
+  --bg-olive-light:#F1F1E7;
+  --bg-olive-dark:#DCDFC5;
+  --olive-green:#58852C;
+  --text:#2B2B2B;
+  --muted:#4A4A4A;
+}
 
-      --text: #2B2B2B;
-      --muted: #4A4A4A;
+*{box-sizing:border-box;}
 
-      /* Name in Baum-Farbe */
-      --name-color: var(--olive-green);
-    }
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--text);
+}
 
-    *{ box-sizing:border-box; }
+header.hero{
+  background: radial-gradient(circle,var(--bg-olive-light) 0%,var(--bg-olive-dark) 100%);
+  display:flex;
+  align-items:center;
+  gap:30px;
+  padding:30px;
+}
 
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      color: var(--text);
-      background:#fff;
-    }
+.hero-tree{
+  width:140px;
+  height:140px;
+}
 
-    /* ===== HEADER / HERO ===== */
-    header.hero{
-      background: radial-gradient(circle, var(--bg-olive-light) 0%, var(--bg-olive-dark) 100%);
-      display:flex;
-      align-items:center;
-      justify-content:flex-start;
-      gap: clamp(14px, 2vw, 26px);
-      padding: clamp(14px, 2.2vw, 30px);
-      min-height: clamp(110px, 16vw, 190px);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-    }
+.hero-name{
+  margin:0;
+  font-size:40px;
+  color:var(--olive-green);
+}
 
-    /* Baum links */
-    .hero-tree{
-      flex: 0 0 auto;
-      display:block;
+.hero-subtitle{
+  margin-top:8px;
+  color:var(--muted);
+}
 
-      /* responsive: passt sich an */
-      height: clamp(78px, 12vw, 160px);
-      width: auto;
-      max-width: 240px;
+main{
+  max-width:900px;
+  margin:auto;
+  padding:30px 20px;
+}
 
-      /* kleine optische Feinheit */
-      filter: drop-shadow(0 1px 0 rgba(0,0,0,0.05));
-    }
+.section{
+  margin-top:25px;
+  padding:20px;
+  border:1px solid #e9e9e9;
+  border-radius:12px;
+}
 
-    .hero-text{
-      flex: 1 1 auto;
-      min-width: 0;
-    }
-
-    .hero-name{
-      margin:0;
-      font-weight: 850;
-      letter-spacing: 0.2px;
-      font-size: clamp(26px, 3.2vw, 44px);
-      line-height: 1.05;
-      color: var(--name-color);
-    }
-
-    .hero-subtitle{
-      margin: 8px 0 0 0;
-      color: var(--muted);
-      font-size: clamp(14px, 1.35vw, 18px);
-      line-height: 1.35;
-      max-width: 72ch;
-    }
-
-    main{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 28px 18px 60px;
-    }
-
-    .section{
-      margin-top: 26px;
-      padding: 18px;
-      border-radius: 14px;
-      border: 1px solid #e9e9e9;
-      background: #fff;
-    }
-
-    .section h2{
-      margin: 0 0 10px 0;
-      font-size: 20px;
-    }
-
-    @media (max-width: 520px){
-      header.hero{ gap:12px; padding:14px; }
-      .hero-tree{ height:74px; }
-      .hero-subtitle{ margin-top:6px; }
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <header class="hero">
-    <!-- ✅ Baum wieder sichtbar: SVG muss als <img> eingebunden werden -->
-    <img class="hero-tree"
-         src="Olive_Tree_tree_only.svg"
-         alt="Olivenbaum"
-         loading="eager" />
+<header class="hero">
 
-    <div class="hero-text">
-      <h1 class="hero-name">DEIN NAME</h1>
-      <p class="hero-subtitle">
-        Kurzprofil / Positionierung – z. B. Geschäftsführung • Kaufmännische Leitung • QM • Organisation & Prozesse
-      </p>
-    </div>
-  </header>
+<!-- OLIVENBAUM -->
+<svg class="hero-tree" viewBox="0 0 377 377">
+<g transform="scale(1,-1) translate(0,-377)">
+<circle cx="188" cy="220" r="80" fill="#58852C"/>
+<circle cx="150" cy="250" r="60" fill="#58852C"/>
+<circle cx="230" cy="250" r="60" fill="#58852C"/>
+<rect x="180" y="120" width="16" height="120" fill="#6b4f2a"/>
+</g>
+</svg>
 
-  <main>
-    <section class="section">
-      <h2>Über mich</h2>
-      <p>…</p>
-    </section>
+<div>
+<h1 class="hero-name">DEIN NAME</h1>
+<p class="hero-subtitle">
+Geschäftsführung • Kaufmännische Leitung • Qualitätsmanagement • Organisation & Prozesse
+</p>
+</div>
 
-    <section class="section">
-      <h2>Erfahrung</h2>
-      <p>…</p>
-    </section>
+</header>
 
-    <section class="section">
-      <h2>Fähigkeiten</h2>
-      <p>…</p>
-    </section>
+<main>
 
-    <section class="section">
-      <h2>Kontakt</h2>
-      <p>…</p>
-    </section>
-  </main>
+<section class="section">
+<h2>Über mich</h2>
+<p>Kurzprofil über Erfahrung, Werte und Stärken.</p>
+</section>
+
+<section class="section">
+<h2>Erfahrung</h2>
+<p>Berufliche Stationen und Verantwortungsbereiche.</p>
+</section>
+
+<section class="section">
+<h2>Fähigkeiten</h2>
+<p>Strategie • Führung • Qualitätsmanagement • Digitalisierung</p>
+</section>
+
+<section class="section">
+<h2>Kontakt</h2>
+<p>E-Mail • LinkedIn • Telefonnummer</p>
+</section>
+
+</main>
 
 </body>
 </html>
